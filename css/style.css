@@ -48,6 +48,8 @@ html{
     height: 5rem;
     /*by giving hamburger as relative, you can now absolute position children of ths element.*/
     position: relative;
+    /*When you clock on a button there is usually an outline. this takes it off*/
+    outline: none;
   }
 
   .hamburger div{
