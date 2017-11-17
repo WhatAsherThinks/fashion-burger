@@ -1,0 +1,104 @@
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html{
+  font-size: 10px;
+}
+
+.main-nav{
+  display: flex;
+  min-height: 5rem;
+  background: teal;
+  padding: 0 1rem;
+  /* this controls vertical alignment.*/
+  align-items: center;
+  font-size: 2rem;
+}
+
+.hamburger{
+  display: none;
+}
+
+.main-nav-list{
+  display: flex;
+  list-style: none;
+  /* pushes all the list items to the right*/
+  margin-left: auto;
+}
+
+.main-nav-list li{
+  margin-left: 1rem;
+  /*adding padding here allows the user to click a little around the link and still be considered as clicking it. this helps with small devices and such*/
+  padding: 1rem;
+}
+
+@media (max-width: 60rem) {
+  .main-nav{
+    flex-wrap: wrap;
+  }
+
+  .hamburger{
+    display: block;
+    margin-left: auto;
+    background: transparent;
+    border: none;
+    width: 5rem;
+    height: 5rem;
+    /*by giving hamburger as relative, you can now absolute position children of ths element.*/
+    position: relative;
+  }
+
+  .hamburger div{
+    height: 1rem;
+    width: 4rem;
+    background: white;
+    position: absolute;
+    border-radius: .3rem;
+    /* this is moving the anchor point inside the box. the translate is moving  it to the middle of the element (box). -50% is moving it horizontal to the left. the second one moves it -50% down. so the anchor poiont is now in the center*/
+    transform: translate(-50%,-50%);
+    left: 50%;
+  }
+
+  .hamburger div:first-child {
+    top: 25%;
+  }
+  .hamburger div:nth-child(2){
+  top: 50%
+  }
+
+  .hamburger div:nth-child(3) {
+  top: 75%;
+  }
+
+/*if you put the two classes separated by a period. "hamburger.close" this is selecting two classes. If and element has BOTH hamburger and close. This will make sure that the previous hamburger styl;es are overrulled*/
+  .hamburger.close div:first-child {
+    top: 50%;
+    transform: translate(-50%,-50%) rotate(45deg);
+  }
+  .hamburger.close div:nth-child(2){
+    opacity: 0;
+  }
+  .hamburger.close div:nth-child(3){
+    top: 50%;
+    transform: translate(-50%,-50%) rotate(-45deg);
+  }
+
+  .main-nav-list{
+    /* this makes it a blockelement which means it takes up width 100% */
+    display: block;
+    /* this makes sure its 100% because it is still a child of main nav, which is display flex. display flex, only takes up as much spaces as the content (the words)*/
+    width: 100%;
+    text-align: center;
+    max-height: 0;
+  /*by dafault the content will go outside, so to hide it, put overflow: hidden;*/
+    overflow: hidden;
+    transition: 0.25s;
+  }
+
+  .main-nav-list.open{
+  /* by giving it a max height, it allows it to get a transition*/
+    max-height: 20rem;
+  }
+}
