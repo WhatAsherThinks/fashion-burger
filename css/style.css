@@ -5,16 +5,22 @@
 }
 html{
   font-size: 10px;
+  background: #F7CDA5
 }
 
 .main-nav{
   display: flex;
   min-height: 5rem;
-  background: teal;
+  background: #D46330;
+  opacity: .90;
   padding: 0 1rem;
   /* this controls vertical alignment.*/
   align-items: center;
   font-size: 2rem;
+}
+
+.brand-link{
+    font-size: 4rem;
 }
 
 .hamburger{
@@ -104,3 +110,36 @@ html{
     max-height: 20rem;
   }
 }
+
+/*=========================
+body
+=========================*/
+
+.row{
+  font-size: 4rem;
+  display: flex;
+  text-align: center;
+  align-items: center;
+}
+
+.col-3 p{
+  color: black;
+  width: auto;
+  font-size: 2rem;
+  text-align: center;
+  max-height: 40rem;
+  overflow: hidden;
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+
+.model-pic{
+  display: block;
+  margin: auto;
+  border-radius: 1rem;
+}
+
+@media (max-width: 60rem) {
+  .model-pic{
+    display: none;
+  }
